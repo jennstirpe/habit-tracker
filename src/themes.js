@@ -1,13 +1,15 @@
 export const lightTheme = {
     colors: {
-        // textMain: "",
-        // accentMain: "",
+        textMain: "#2B2739",
+        textSecondary: "#AAA5B4",
+        accentMain: "#AB6AF8",
         toggler: "#778da9",
-        // bgMain: ""
+        bgMain: "#e9ecef",
+        bgSecondary: "#f8f9fa"
     },
     fonts: {
-        // headerText: "",
-        // mainText: "",
+        headerText: "'Philosopher', sans-serif",
+        mainText: "'Mulish', sans-serif",
         // accentText: ""
     },
     icons: {
@@ -17,14 +19,16 @@ export const lightTheme = {
 
 export const darkTheme = {
     colors: {
-        // textMain: "",
-        // accentMain: "",
+        textMain: "#E7E5EB",
+        textSecondary: "#686172",
+        accentMain: "#2D30F9",
         toggler: "#22333b",
-        // bgMain: ""
+        bgMain: "#212529",
+        bgSecondary: "#343a40"
     },
     fonts: {
-        // headerText: "",
-        // mainText: "",
+        headerText: "'Philosopher', sans-serif",
+        mainText: "'Mulish', sans-serif",
         // accentText: ""
     },
     icons: {
