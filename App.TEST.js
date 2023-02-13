@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import _ from "lodash";
 
 import GlobalStyles from "./components/global/styled/Global";
 import { ThemeProvider } from "styled-components";
@@ -13,6 +12,8 @@ import CurrentDay from "./components/main/CurrentDay";
 
 
 function App() {
+
+  
 
   const today = new Date().toLocaleDateString();
   const [date, setDate] = useState(today);
@@ -55,7 +56,9 @@ function App() {
     },
   ]);
 
-  const [ currentDayChecklist, setCurrentDayChecklist ] = useState([
+  const [ currentDayChecklist, setCurrentDayChecklist ] = useState({
+    date: "2/8/2023",
+    habits: [
       {
         id: 'Tidy room',
         name: "Tidy Room",
@@ -68,10 +71,11 @@ function App() {
         color: "#0a9396",
         complete: false
       }
-    ]);
+    ]
+  });
 
 
-    /* @ START OF NEW DAY, RESET CURRENTDAYCHECKLIST */
+  // const [ currentDayChecklist, setCurrentDayChecklist ] = useState({});
 
   // function setNewDay() {
   //   const copyHabitsList = [...habitsList];
@@ -81,33 +85,63 @@ function App() {
   //     return { id: newId, name: habit.name, color: habit.color, complete: false }
   //   })
 
-    
-  //   setCurrentDayChecklist(newHabitsList)
+  //   setCurrentDayChecklist({date: date, habits: [... newHabitsList]})
   // }
 
   // useEffect(() => {
   //   if(currentDayChecklist.date === date) {
   //     return
   //   } else {
-  //        // CREATE NEW DAY OBJECT AND PUSH TO HISTORY
   //     setNewDay()
   //   }
   // }, [])
 
+  // useEffect(() => {
+  //   if(currentDayChecklist.date) {
+  //     console.log(currentDayChecklist)
+  //   }
+  // }, [currentDayChecklist])
 
 
+  // function toggleHabitComplete(id) {
+  //   const checklistCopy = currentDayChecklist;
+    
+  //   const todaysHabits = [...checklistCopy.habits.slice()];
+    
+  //   const selectedHabit = todaysHabits.find(habit => habit.id === id);
+  //   console.log(selectedHabit)
+  //   // console.log(currentDayChecklist)
+  //   selectedHabit.complete = !selectedHabit.complete;
+  //   console.log(selectedHabit)
+  //   console.log(currentDayChecklist)
+
+
+  //   // console.log(currentDayChecklist)
+  //   // setCurrentDayChecklist(todaysHabits);
+  //   // console.log(currentDayChecklist)
+  // }
 
   function toggleHabitComplete(id) {
-    setCurrentDayChecklist(currentDayChecklist.map(habit => {
-      if(habit.id === id) {
-        return {...habit, complete: !habit.complete}
-      } else {
-        return habit
-      }
-    }))
+    
+    const todaysHabits = structuredClone(currentDayChecklist.habits);
+    // console.log(checklistClone)
+
+    // const todaysHabits = checklistClone.habits;
+    // console.log(todaysHabits)
+    
+    const selectedHabit = todaysHabits.find(habit => habit.id === id);
+    console.log(selectedHabit)
+    console.log(todaysHabits)
+    selectedHabit.complete = !selectedHabit.complete;
+    console.log(selectedHabit)
+    console.log(todaysHabits)
+
+
+    // console.log(currentDayChecklist)
+    // setCurrentDayChecklist(todaysHabits);
+    // console.log(currentDayChecklist)
   }
 
-  
 
 
   return (

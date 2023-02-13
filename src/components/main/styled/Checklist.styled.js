@@ -13,10 +13,12 @@ export const StyledChecklist = styled.section`
         border-top-left-radius: 1rem;
         border-top-right-radius: 1rem;
         text-align: center;
+        color: ${({theme}) => theme.colors.textSecondary};
 
         .checklist-date {
             font-size: 1.35rem;
             font-family: ${({theme}) => theme.fonts.mainText};
+            color: ${({theme}) => theme.colors.textMain};
         }
     }
     

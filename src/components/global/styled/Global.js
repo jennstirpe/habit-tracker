@@ -19,12 +19,12 @@ const GlobalStyles = createGlobalStyle`
         align-items: center;
         
         p, span, button, a {
-            font-weight: 400;
+            font-weight: ${({theme}) => theme.fonts.weights.body};
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: ${({theme}) => theme.fonts.headerText};
-            font-weight: 400;
+            font-weight: ${({theme}) => theme.fonts.weights.headers};
         }
     }
 `;

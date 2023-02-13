@@ -9,7 +9,7 @@ export const StyledToggler = styled.div`
         height: 1.25rem;
         width: 2.5rem;
         border-radius: 1rem;
-        border: 1px solid ${({theme}) => theme.colors.toggler};
+        border: 1px solid ${({theme}) => theme.colors.accentMain};
         display: flex;
         justify-content: space-evenly;
         align-items: center;
@@ -22,7 +22,7 @@ export const StyledToggler = styled.div`
         #sun, #moon {
             height: .7rem;
             margin: 0 .25rem;
-            color: ${({theme}) => theme.colors.toggler};
+            color: ${({theme}) => theme.colors.accentMain};
         }
 
         #toggle {
@@ -31,7 +31,7 @@ export const StyledToggler = styled.div`
             border-radius: 50%;
             position: absolute;
             left: 0;
-            background: ${({theme}) => theme.colors.toggler};
+            background: ${({theme}) => theme.colors.accentMain};
             border: 1px solid white;
             transition: transform 250ms linear;
         }
