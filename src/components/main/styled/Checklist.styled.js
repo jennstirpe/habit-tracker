@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const StyledChecklist = styled.section`
     width: 22rem;
     border-radius: 1rem;
-    /* box-shadow: 0 0 1rem #aaa; */
     background: ${({theme}) => theme.colors.bgSecondary};
 
     .checklist-header {

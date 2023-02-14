@@ -1,7 +1,9 @@
 import { StyledDisplayBar } from "./styled/DisplayBar.styled"
 
 export default function DisplayBar({ checklist }) {
+
   return (
+
     <StyledDisplayBar>
         {
             checklist.map(habit => {

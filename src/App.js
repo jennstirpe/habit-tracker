@@ -9,6 +9,7 @@ import ThemeToggler from "./components/header/ThemeToggler";
 import Checklist from "./components/main/Checklist";
 import ColorInput from "./components/main/ColorInput";
 import CurrentDay from "./components/main/CurrentDay";
+import History from "./components/main/History";
 
 
 
@@ -55,44 +56,141 @@ function App() {
     },
   ]);
 
-  const [ currentDayChecklist, setCurrentDayChecklist ] = useState([
-      {
-        id: 'Tidy room',
-        name: "Tidy Room",
-        color: "#f72585",
-        complete: false
-      },
-      {
-        id: 'Skincare',
-        name: "Skincare",
-        color: "#0a9396",
-        complete: false
-      }
-    ]);
+  // const [ currentDayChecklist, setCurrentDayChecklist ] = useState([
+  //     {
+  //       id: 'Tidy room',
+  //       name: "Tidy Room",
+  //       color: "#f72585",
+  //       complete: false
+  //     },
+  //     {
+  //       id: 'Skincare',
+  //       name: "Skincare",
+  //       color: "#0a9396",
+  //       complete: false
+  //     }
+  //   ]);
+
+  const [ currentDayChecklist, setCurrentDayChecklist ] = useState([]);
+
+  const [ history, setHistory ] = useState([
+    {
+      id: "33",
+      date: "2/12/2023",
+      habits: [
+        {
+          id: 'Tidy room',
+          name: "Tidy Room",
+          color: "#f72585",
+          complete: true
+        },
+        {
+          id: 'Skincare',
+          name: "Skincare",
+          color: "#0a9396",
+          complete: false
+        },
+        {
+          id: 'Make bed',
+          name: "Make bed",
+          color: "#d883ff",
+          complete: true
+        },
+        {
+          id: 'Vitamins',
+          name: "Vitamins",
+          color: "#d00000",
+          complete: false
+        },
+      ]
+    },
+    {
+      id: "22",
+      date: "2/11/2023",
+      habits: [
+        {
+          id: 'Tidy room',
+          name: "Tidy Room",
+          color: "#f72585",
+          complete: false
+        },
+        {
+          id: 'Skincare',
+          name: "Skincare",
+          color: "#0a9396",
+          complete: true
+        },
+        {
+          id: 'Make bed',
+          name: "Make bed",
+          color: "#d883ff",
+          complete: true
+        },
+        {
+          id: 'Vitamins',
+          name: "Vitamins",
+          color: "#d00000",
+          complete: true
+        },
+      ]
+    },
+    {
+      id: "11",
+      date: "2/10/2023",
+      habits: [
+        {
+          id: 'Tidy room',
+          name: "Tidy Room",
+          color: "#f72585",
+          complete: false
+        },
+        {
+          id: 'Skincare',
+          name: "Skincare",
+          color: "#0a9396",
+          complete: true
+        },
+        {
+          id: 'Make bed',
+          name: "Make bed",
+          color: "#d883ff",
+          complete: false
+        },
+        {
+          id: 'Vitamins',
+          name: "Vitamins",
+          color: "#d00000",
+          complete: true
+        },
+      ]
+    },
+    
+    
+  ]);
 
 
     /* @ START OF NEW DAY, RESET CURRENTDAYCHECKLIST */
 
-  // function setNewDay() {
-  //   const copyHabitsList = [...habitsList];
+  function setNewDay() {
+    const copyHabitsList = [...habitsList];
 
-  //   const newHabitsList = copyHabitsList.map(habit => {
-  //     const newId = habit.name;
-  //     return { id: newId, name: habit.name, color: habit.color, complete: false }
-  //   })
+    const newHabitsList = copyHabitsList.map(habit => {
+      const newId = habit.name;
+      return { id: newId, name: habit.name, color: habit.color, complete: false }
+    })
 
     
-  //   setCurrentDayChecklist(newHabitsList)
-  // }
+    setCurrentDayChecklist(newHabitsList)
+  }
 
-  // useEffect(() => {
-  //   if(currentDayChecklist.date === date) {
-  //     return
-  //   } else {
-  //        // CREATE NEW DAY OBJECT AND PUSH TO HISTORY
-  //     setNewDay()
-  //   }
-  // }, [])
+  useEffect(() => {
+    if(currentDayChecklist.date === date) {
+      return
+    } else {
+         // CREATE NEW DAY OBJECT AND PUSH TO HISTORY
+      setNewDay()
+    }
+  }, [])
 
 
 
@@ -122,8 +220,10 @@ function App() {
       </header>
 
       {
-        currentDayChecklist && <CurrentDay currentDayChecklist={currentDayChecklist} toggleHabitComplete={toggleHabitComplete} />
+        currentDayChecklist && <CurrentDay currentDayChecklist={currentDayChecklist} toggleHabitComplete={toggleHabitComplete} date={date} />
       }
+
+      <History history={history} />
       
     </>
     </ThemeProvider>
