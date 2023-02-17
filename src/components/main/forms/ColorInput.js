@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { StyledColorInput } from "./styled/ColorInput.styled";
+import { StyledColorInput } from "../styled/forms/ColorInput.styled";
 
-export default function ColorInput({ }) {
+export default function ColorInput({ closeColorInput, setSelectedColor }) {
 
     const [color, setColor] = useState("");
 
@@ -11,12 +11,15 @@ export default function ColorInput({ }) {
         setColor(color);
     }
 
+    function handleSetSelectedColor(e) {
+        e.preventDefault()
+        setSelectedColor(color)
+    }
+
 
   return (
     <StyledColorInput>
-        <div className="color-select-header">
-            <button className="color-select-close">×</button>
-        </div>
+        <button onClick={closeColorInput} className="color-select-close" aria-label="Close color selector">×</button>
         
         <div onChange={setColorChoice} className="color-options">
             <label  className="color-option">
@@ -85,7 +88,7 @@ export default function ColorInput({ }) {
             </label>
         </div>
 
-        <button className="color-submit">Select</button>
+        <button onClick={handleSetSelectedColor} className="color-submit">Select</button>
 
     </StyledColorInput>
   )

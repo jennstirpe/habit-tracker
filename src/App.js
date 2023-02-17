@@ -6,10 +6,11 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from './themes.js';
 
 import ThemeToggler from "./components/header/ThemeToggler";
-import Checklist from "./components/main/Checklist";
-import ColorInput from "./components/main/ColorInput";
-import CurrentDay from "./components/main/CurrentDay";
-import History from "./components/main/History";
+import Checklist from "./components/main/display/Checklist";
+import ColorInput from "./components/main/forms/ColorInput";
+import CurrentDay from "./components/main/display/CurrentDay";
+import History from "./components/main/display/History";
+import InitialSetupForm from "./components/main/forms/InitialSetupForm";
 
 
 
@@ -17,6 +18,17 @@ function App() {
 
   const today = new Date().toLocaleDateString();
   const [date, setDate] = useState(today);
+
+  // CLOCK & TIME TRACKING
+  const [currentTime, setCurrentTime] = useState();
+
+  useEffect(() => {
+    setInterval(() => {
+      const time = new Date().toLocaleTimeString();
+      setCurrentTime(time);
+    })
+  }, [])
+
 
   // SET THEME
   const [colorTheme, setColorTheme] = useState('light');
@@ -29,32 +41,33 @@ function App() {
     }
   }
 
-  const [ habitsList, setHabitsList ] = useState([
-    { 
-      id: 1,
-      name: "Tidy room",
-      color: "#f72585",
-      type: "check",
-    },
-    { 
-      id: 2,
-      name: "Skincare",
-      color: "#0a9396",
-      type: "check",
-    },
-    { 
-      id: 3,
-      name: "Make bed",
-      color: "#d883ff",
-      type: "check",
-    },
-    { 
-      id: 4,
-      name: "Vitamins",
-      color: "#d00000",
-      type: "check",
-    },
-  ]);
+  // const [ habitsList, setHabitsList ] = useState([
+  //   { 
+  //     id: 1,
+  //     name: "Tidy room",
+  //     color: "#f72585",
+  //     type: "check",
+  //   },
+  //   { 
+  //     id: 2,
+  //     name: "Skincare",
+  //     color: "#0a9396",
+  //     type: "check",
+  //   },
+  //   { 
+  //     id: 3,
+  //     name: "Make bed",
+  //     color: "#d883ff",
+  //     type: "check",
+  //   },
+  //   { 
+  //     id: 4,
+  //     name: "Vitamins",
+  //     color: "#d00000",
+  //     type: "check",
+  //   },
+  // ]);
+  const [ habitsList, setHabitsList ] = useState([]);
 
   // const [ currentDayChecklist, setCurrentDayChecklist ] = useState([
   //     {
@@ -72,6 +85,8 @@ function App() {
   //   ]);
 
   const [ currentDayChecklist, setCurrentDayChecklist ] = useState([]);
+
+  
 
   const [ history, setHistory ] = useState([
     {
@@ -184,7 +199,7 @@ function App() {
   }
 
   useEffect(() => {
-    if(currentDayChecklist.date === date) {
+    if(currentDayChecklist.length > 0) {
       return
     } else {
          // CREATE NEW DAY OBJECT AND PUSH TO HISTORY
@@ -192,7 +207,9 @@ function App() {
     }
   }, [])
 
-
+  // useEffect(() => {
+  //   console.log(currentDayChecklist)
+  // }, [currentDayChecklist])
 
 
   function toggleHabitComplete(id) {
@@ -205,6 +222,26 @@ function App() {
     }))
   }
 
+  function createNewHistoryRecord() {
+    const currentDate = new Date();
+    const month = currentDate.getMonth() + 1;
+    const day = currentDate.getDate() - 1;
+    const year = currentDate.getFullYear();
+    const habits = [...currentDayChecklist];
+
+    const newRecord  = {
+      id: day,
+      date: `${month}/${day}/${year}`,
+      habits: habits
+    }
+
+    console.log(newRecord);
+
+    setHistory([newRecord, ...history]);
+
+    setNewDay()
+    
+  }
   
 
 
@@ -219,11 +256,28 @@ function App() {
         <span>Build habits effectively and stay on track</span>
       </header>
 
+      <div>{currentTime}</div>
+
       {
-        currentDayChecklist && <CurrentDay currentDayChecklist={currentDayChecklist} toggleHabitComplete={toggleHabitComplete} date={date} />
+        habitsList.length === 0 && <InitialSetupForm />
       }
 
-      <History history={history} />
+      {
+        habitsList.length > 0 && (
+          <main>
+            {/* <button onClick={createNewHistoryRecord} >CREATE NEW RECORD</button> */}
+
+            {
+              currentDayChecklist && <CurrentDay currentDayChecklist={currentDayChecklist} toggleHabitComplete={toggleHabitComplete} date={date} />
+            }
+
+            <History history={history} />
+          </main>
+        )
+      }
+
+  
+      
       
     </>
     </ThemeProvider>

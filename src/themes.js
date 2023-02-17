@@ -9,7 +9,8 @@ export const lightTheme = {
         accentMain: "#560bad",
         toggler: "#778da9",
         bgMain: "#e9ecef",
-        bgSecondary: "#f8f9fa"
+        bgSecondary: "#f8f9fa",
+        boxShadow: "#000000"
     },
     fonts: {
         headerText: "'Philosopher', sans-serif",
@@ -31,7 +32,8 @@ export const darkTheme = {
         accentMain: "#b5179e",
         toggler: "#22333b",
         bgMain: "#212529",
-        bgSecondary: "#343a40"
+        bgSecondary: "#343a40",
+        boxShadow: "#000000"
     },
     fonts: {
         headerText: "'Philosopher', sans-serif",

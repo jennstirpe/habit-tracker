@@ -1,5 +1,5 @@
 import DisplayBar from "./DisplayBar";
-import { StyledHistoryItem } from "./styled/HistoryItem.styled";
+import { StyledHistoryItem } from "../styled/display/HistoryItem.styled";
 
 export default function HistoryItem({ date, checklist }) {
   return (

@@ -1,4 +1,4 @@
-import { StyledChecklist } from "./styled/Checklist.styled"
+import { StyledChecklist } from "../styled/display/Checklist.styled"
 
 export default function Checklist({ currentDayChecklist, toggleHabitComplete }) {
 

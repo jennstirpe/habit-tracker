@@ -6,7 +6,7 @@ export const StyledDisplayBar = styled.section`
     .habit-box {
         height: 2rem;
         width: 2rem;
-        background: ${({theme}) => theme.colors.bgMain};
+        background: ${({theme}) => theme.colors.bgSecondary};
         border-top: 1px solid ${({theme}) => theme.colors.textMain};
         border-bottom: 1px solid ${({theme}) => theme.colors.textMain};
         border-right: 1px solid ${({theme}) => theme.colors.textMain};

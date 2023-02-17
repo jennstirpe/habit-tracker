@@ -1,16 +1,14 @@
 import styled from "styled-components";
 
 export const StyledColorInput = styled.form`
-    border-radius: .5rem;
-    box-shadow: 0 0 .5rem ${({theme}) => theme.colors.boxShadow};
-    width: 12rem;
-    height: 12rem;
-    padding: 1rem;
-    background: ${({theme}) => theme.colors.bg1};
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem ${({theme}) => theme.colors.boxShadow}50;
+    width: 17rem;
+    height: 17rem;
+    background: ${({theme}) => theme.colors.bgMain};
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -18,43 +16,34 @@ export const StyledColorInput = styled.form`
     right: 0;
     margin: auto;
     z-index: 5;
+    padding-top: 1.5rem;
+    
+    .color-select-close {
+        position: absolute;
+        left: .5rem;
+        top: .25rem;
+        font-size: 2rem;
+        color: ${({theme}) => theme.colors.textMain};
+        background: ${({theme}) => theme.colors.bgMain};
+        border: none;
+        transition: all 200ms linear;
 
-    .color-select-header {
-        display: flex;
-        margin-bottom: .5rem;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-
-        .color-select-close {
-            width: 1.5rem;
-            height: 1.5rem;
-            font-size: 1rem;
-            border-radius: .5rem;
-            color: ${({theme}) => theme.colors.textMain};
-            background: ${({theme}) => theme.colors.bg1};
-            border: 1px solid ${({theme}) => theme.colors.accentMain};
-            transition: all 200ms linear;
-
-            &:hover {
-                cursor: pointer;
-                background: ${({theme}) => theme.colors.accentMain};
-                color: ${({theme}) => theme.colors.textSecondary};
-            }
+        &:hover {
+            cursor: pointer;
+            color: ${({theme}) => theme.colors.accentMain}50;
         }
     }
-
-    
 
     .color-options {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
-
+        height: 12rem;
+        width: 12rem;
 
         .color-option {
-            height: 2rem;
-            width: 2rem;
+            height: 2.25rem;
+            width: 2.25rem;
             border-radius: 50%;
             margin: .2rem .1rem;
             position: relative;
@@ -62,13 +51,13 @@ export const StyledColorInput = styled.form`
 
             &:hover {
                 cursor: pointer;
-                opacity: .9;
+                opacity: .8;
             }
 
             .color-selected {
                 display: none;
-                width: 2rem;
-                height: 2rem;
+                width: 2.25rem;
+                height: 2.25rem;
                 border-radius: 50%;
                 border: 3px solid ${({theme}) => theme.colors.textMain};
                 position: absolute;
@@ -137,20 +126,22 @@ export const StyledColorInput = styled.form`
     }    
 
     .color-submit {
-        width: 8rem;
-        padding: .25rem;
+        width: 90%;
+        padding: .5rem 0;
         margin-top: 1rem;
         font-size: 1rem;
-        border-radius: .5rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border-radius: 1rem;
         color: ${({theme}) => theme.colors.textMain};
-        background: ${({theme}) => theme.colors.bg1};
-        border: 1px solid ${({theme}) => theme.colors.accentMain};
+        background: ${({theme}) => theme.colors.bgSecondary};
+        border: none;
         transition: all 200ms linear;
 
         &:hover {
             cursor: pointer;
-            background: ${({theme}) => theme.colors.accentMain};
-            color: ${({theme}) => theme.colors.textSecondary};
+            background: ${({theme}) => theme.colors.accentMain}70;
+            color: #fff;
         }
         
     }

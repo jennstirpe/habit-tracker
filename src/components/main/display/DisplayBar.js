@@ -1,4 +1,4 @@
-import { StyledDisplayBar } from "./styled/DisplayBar.styled"
+import { StyledDisplayBar } from "../styled/display/DisplayBar.styled"
 
 export default function DisplayBar({ checklist }) {
 
