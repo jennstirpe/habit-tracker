@@ -19,9 +19,10 @@ function App() {
   const today = new Date().toLocaleDateString();
   const [date, setDate] = useState(today);
 
+  
+
   // CLOCK & TIME TRACKING
   const [currentTime, setCurrentTime] = useState();
-
   useEffect(() => {
     setInterval(() => {
       const time = new Date().toLocaleTimeString();
@@ -41,53 +42,38 @@ function App() {
     }
   }
 
-  // const [ habitsList, setHabitsList ] = useState([
-  //   { 
-  //     id: 1,
-  //     name: "Tidy room",
-  //     color: "#f72585",
-  //     type: "check",
-  //   },
-  //   { 
-  //     id: 2,
-  //     name: "Skincare",
-  //     color: "#0a9396",
-  //     type: "check",
-  //   },
-  //   { 
-  //     id: 3,
-  //     name: "Make bed",
-  //     color: "#d883ff",
-  //     type: "check",
-  //   },
-  //   { 
-  //     id: 4,
-  //     name: "Vitamins",
-  //     color: "#d00000",
-  //     type: "check",
-  //   },
-  // ]);
-  const [ habitsList, setHabitsList ] = useState([]);
+/* LIST OF HABITS TO TRACK */   // const [ habitsList, setHabitsList ] = useState([]);
+  const [ habitsList, setHabitsList ] = useState([
+    { 
+      id: 1,
+      name: "Tidy room",
+      color: "#f72585",
+      type: "check",
+    },
+    { 
+      id: 2,
+      name: "Skincare",
+      color: "#0a9396",
+      type: "check",
+    },
+    { 
+      id: 3,
+      name: "Make bed",
+      color: "#d883ff",
+      type: "check",
+    },
+    { 
+      id: 4,
+      name: "Vitamins",
+      color: "#d00000",
+      type: "check",
+    },
+  ]);
 
-  // const [ currentDayChecklist, setCurrentDayChecklist ] = useState([
-  //     {
-  //       id: 'Tidy room',
-  //       name: "Tidy Room",
-  //       color: "#f72585",
-  //       complete: false
-  //     },
-  //     {
-  //       id: 'Skincare',
-  //       name: "Skincare",
-  //       color: "#0a9396",
-  //       complete: false
-  //     }
-  //   ]);
-
+/* CURRENT DAY CHECKLIST */
   const [ currentDayChecklist, setCurrentDayChecklist ] = useState([]);
 
-  
-
+/* TRACKING HISTORY */
   const [ history, setHistory ] = useState([
     {
       id: "33",
@@ -179,13 +165,130 @@ function App() {
         },
       ]
     },
-    
-    
+    {
+      id: "44",
+      date: "1/20/2023",
+      habits: [
+        {
+          id: 'Tidy room',
+          name: "Tidy Room",
+          color: "#f72585",
+          complete: true
+        },
+        {
+          id: 'Skincare',
+          name: "Skincare",
+          color: "#0a9396",
+          complete: true
+        },
+        {
+          id: 'Make bed',
+          name: "Make bed",
+          color: "#d883ff",
+          complete: true
+        },
+        {
+          id: 'Vitamins',
+          name: "Vitamins",
+          color: "#d00000",
+          complete: false
+        },
+      ]
+    },
+    {
+      id: "100",
+      date: "1/12/2023",
+      habits: [
+        {
+          id: 'Tidy room',
+          name: "Tidy Room",
+          color: "#f72585",
+          complete: true
+        },
+        {
+          id: 'Skincare',
+          name: "Skincare",
+          color: "#0a9396",
+          complete: false
+        },
+        {
+          id: 'Make bed',
+          name: "Make bed",
+          color: "#d883ff",
+          complete: true
+        },
+        {
+          id: 'Vitamins',
+          name: "Vitamins",
+          color: "#d00000",
+          complete: false
+        },
+      ]
+    },
+    {
+      id: "55",
+      date: "12/30/2022",
+      habits: [
+        {
+          id: 'Tidy room',
+          name: "Tidy Room",
+          color: "#f72585",
+          complete: true
+        },
+        {
+          id: 'Skincare',
+          name: "Skincare",
+          color: "#0a9396",
+          complete: false
+        },
+        {
+          id: 'Make bed',
+          name: "Make bed",
+          color: "#d883ff",
+          complete: false
+        },
+        {
+          id: 'Vitamins',
+          name: "Vitamins",
+          color: "#d00000",
+          complete: false
+        },
+      ]
+    },
+    {
+      id: "66",
+      date: "11/08/2021",
+      habits: [
+        {
+          id: 'Tidy room',
+          name: "Tidy Room",
+          color: "#f72585",
+          complete: false
+        },
+        {
+          id: 'Skincare',
+          name: "Skincare",
+          color: "#0a9396",
+          complete: false
+        },
+        {
+          id: 'Make bed',
+          name: "Make bed",
+          color: "#d883ff",
+          complete: true
+        },
+        {
+          id: 'Vitamins',
+          name: "Vitamins",
+          color: "#d00000",
+          complete: true
+        },
+      ]
+    },
   ]);
 
 
-    /* @ START OF NEW DAY, RESET CURRENTDAYCHECKLIST */
-
+/* @ START OF NEW DAY, RESET CURRENTDAYCHECKLIST */
   function setNewDay() {
     const copyHabitsList = [...habitsList];
 
@@ -206,10 +309,6 @@ function App() {
       setNewDay()
     }
   }, [])
-
-  // useEffect(() => {
-  //   console.log(currentDayChecklist)
-  // }, [currentDayChecklist])
 
 
   function toggleHabitComplete(id) {
@@ -242,7 +341,7 @@ function App() {
     setNewDay()
     
   }
-  
+
 
 
   return (
@@ -271,7 +370,7 @@ function App() {
               currentDayChecklist && <CurrentDay currentDayChecklist={currentDayChecklist} toggleHabitComplete={toggleHabitComplete} date={date} />
             }
 
-            <History history={history} />
+            <History history={history} date={date} />
           </main>
         )
       }

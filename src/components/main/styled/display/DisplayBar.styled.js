@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledDisplayBar = styled.section`
     display: flex;
+    box-shadow: .15rem .15rem .5rem ${({theme}) => theme.colors.boxShadow}75;
     
     .habit-box {
         height: 2rem;
