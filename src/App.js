@@ -432,16 +432,15 @@ function App() {
     }))
   }
 
-  function changeHabitCompleteAmt(id) {
-    setCurrentDayChecklist(currentDayChecklist.map(habit => {
-      if(habit.id === id) {
-  
-        return {...habit, complete: !habit.complete}
+  function updateCurrentAmt(newAmt, id) {
+    console.log(newAmt)
+    console.log(id)
+    
+    const newHabits = [...currentDayChecklist];
+    const updatedHabit = newHabits.find(habit => habit.id === id);
+    updatedHabit.goal.currentAmt = newAmt;
+    
 
-      } else {
-        return habit
-      }
-    }))
   }
 
   function createNewHistoryRecord() {
@@ -490,7 +489,7 @@ function App() {
             {/* <button onClick={createNewHistoryRecord} >CREATE NEW RECORD</button> */}
 
             {
-              currentDayChecklist && <CurrentDay currentDayChecklist={currentDayChecklist} toggleHabitComplete={toggleHabitComplete} date={date} />
+              currentDayChecklist && <CurrentDay currentDayChecklist={currentDayChecklist} toggleHabitComplete={toggleHabitComplete} updateCurrentAmt={updateCurrentAmt} date={date} />
             }
 
             <History history={history} date={date} />

@@ -1,14 +1,23 @@
+import { useState } from "react";
 import { StyledChecklist } from "../styled/display/Checklist.styled";
 import QuantityInput from "../forms/QuantityInput";
 
-export default function Checklist({ currentDayChecklist, toggleHabitComplete }) {
-
+export default function Checklist({ currentDayChecklist, toggleHabitComplete, updateCurrentAmt }) {
+  const [ quantityFormActive, setQuantityFormActive ] = useState(false);
+  const [ activeQuantityHabit, setActiveQuantityHabit ] = useState({})
   const todaysHabits = currentDayChecklist;
-  
-
 
   function handleToggleComplete(id) {
     toggleHabitComplete(id)
+  }
+
+  function openQuantityInputForm(habit) {
+    setActiveQuantityHabit(habit)
+    setQuantityFormActive(true)
+  }
+
+  function closeQuantityInputForm(id) {
+    setQuantityFormActive(false)
   }
 
   return (
@@ -28,15 +37,15 @@ export default function Checklist({ currentDayChecklist, toggleHabitComplete }) 
             } else {
                 if (habit.goal.currentAmt === 0) {
                   return <div
-                    onClick={() => handleToggleComplete(habit.id)}
+                    onClick={() => openQuantityInputForm(habit)}
                     className= "checklist-item"
                     style={{"border": `3px solid ${habit.color}`}}
                     key={habit.id}>
                       <p>{habit.name}</p>
                     </div>
-                } else if (habit.goal.currentAmt === habit.goal.goalAmt) {
+                } else if (habit.goal.currentAmt >= habit.goal.goalAmt) {
                   return <div
-                    onClick={() => handleToggleComplete(habit.id)}
+                    onClick={() => openQuantityInputForm(habit)}
                     className= "checklist-item"
                     style={{"color": "darkGray", "background": "lightGray", "border": `3px solid ${habit.color}`}}
                     key={habit.id}>
@@ -49,7 +58,7 @@ export default function Checklist({ currentDayChecklist, toggleHabitComplete }) 
                   }
 
                   return <div
-                    onClick={() => handleToggleComplete(habit.id)}
+                    onClick={() => openQuantityInputForm(habit)}
                     className= "checklist-item"
                     style={percentageComplete < 50 ? {"background": `${habit.color}${percentageComplete}`, "border": `3px solid ${habit.color}`} : {"color": "white", "background": `${habit.color}${percentageComplete}`, "border": `3px solid ${habit.color}`}}
                     key={habit.id}
@@ -61,7 +70,7 @@ export default function Checklist({ currentDayChecklist, toggleHabitComplete }) 
           })
         }
         {
-          // <QuantityInput />
+          quantityFormActive && <QuantityInput closeQuantityInputForm={closeQuantityInputForm} updateCurrentAmt={updateCurrentAmt} habit={activeQuantityHabit} />
         }
       </div>
     </StyledChecklist>

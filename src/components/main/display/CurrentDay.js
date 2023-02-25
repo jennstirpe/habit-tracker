@@ -3,7 +3,7 @@ import DisplayBar from "./DisplayBar";
 import { StyledCurrentDay } from "../styled/display/CurrentDay.styled";
 
 
-export default function CurrentDay({ currentDayChecklist, toggleHabitComplete, date }) {
+export default function CurrentDay({ currentDayChecklist, toggleHabitComplete, updateCurrentAmt, date }) {
   return (
     <StyledCurrentDay>
       <div className="current-day-header">
@@ -12,7 +12,7 @@ export default function CurrentDay({ currentDayChecklist, toggleHabitComplete, d
       </div>
       
         
-      <Checklist currentDayChecklist={currentDayChecklist} toggleHabitComplete={toggleHabitComplete} />
+      <Checklist currentDayChecklist={currentDayChecklist} toggleHabitComplete={toggleHabitComplete} updateCurrentAmt={updateCurrentAmt} />
         
     </StyledCurrentDay>
   )
