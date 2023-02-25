@@ -30,13 +30,14 @@ export const StyledChecklist = styled.section`
     }
 
     .checklist-item {
-        color: blue;
         width: 8rem;
         padding: 1rem;
         margin: 1rem 0;
         text-align: center;
         border-radius: 2rem;
         transition: all 150ms linear;
+        background: ${({theme}) => theme.colors.bgSecondary};
+        color: ${({theme}) => theme.colors.textMain};
 
         &:hover {
             cursor: pointer;

@@ -68,10 +68,62 @@ function App() {
       color: "#d00000",
       type: "check",
     },
+    { 
+      id: 5,
+      name: "Drink Water",
+      color: "#ffaa00",
+      type: "quantity",
+      goal: {
+        amt: 80,
+        unit: "ounces"
+      }
+    },
   ]);
 
 /* CURRENT DAY CHECKLIST */
-  const [ currentDayChecklist, setCurrentDayChecklist ] = useState([]);
+  // const [ currentDayChecklist, setCurrentDayChecklist ] = useState([]);
+  const [ currentDayChecklist, setCurrentDayChecklist ] = useState([
+    { 
+      id: 1,
+      name: "Tidy room",
+      color: "#f72585",
+      type: "check",
+      complete: false
+    },
+    { 
+      id: 2,
+      name: "Skincare",
+      color: "#0a9396",
+      type: "check",
+      complete: true
+    },
+    { 
+      id: 3,
+      name: "Make bed",
+      color: "#d883ff",
+      type: "check",
+      complete: false
+    },
+    { 
+      id: 4,
+      name: "Vitamins",
+      color: "#d00000",
+      type: "check",
+      complete: true
+    },
+    { 
+      id: 6,
+      name: "Drink Water",
+      color: "#ffaa00",
+      type: "quantity",
+      goal: {
+        currentAmt: 70,
+        goalAmt: 80,
+        unit: "ounces"
+      },
+      complete: false
+    },
+  ]);
 
 /* TRACKING HISTORY */
   const [ history, setHistory ] = useState([
@@ -83,24 +135,40 @@ function App() {
           id: 'Tidy room',
           name: "Tidy Room",
           color: "#f72585",
+          type: "check",
           complete: true
         },
         {
           id: 'Skincare',
           name: "Skincare",
           color: "#0a9396",
+          type: "check",
           complete: false
         },
         {
           id: 'Make bed',
           name: "Make bed",
           color: "#d883ff",
+          type: "check",
           complete: true
         },
         {
           id: 'Vitamins',
           name: "Vitamins",
           color: "#d00000",
+          type: "check",
+          complete: false
+        },
+        { 
+          id: "Drink Water",
+          name: "Drink Water",
+          color: "#ffaa00",
+          type: "quantity",
+          goal: {
+            currentAmt: 40,
+            goalAmt: 80,
+            unit: "ounces"
+          },
           complete: false
         },
       ]
@@ -113,24 +181,40 @@ function App() {
           id: 'Tidy room',
           name: "Tidy Room",
           color: "#f72585",
+          type: "check",
           complete: false
         },
         {
           id: 'Skincare',
           name: "Skincare",
           color: "#0a9396",
+          type: "check",
           complete: true
         },
         {
           id: 'Make bed',
           name: "Make bed",
           color: "#d883ff",
+          type: "check",
           complete: true
         },
         {
           id: 'Vitamins',
           name: "Vitamins",
           color: "#d00000",
+          type: "check",
+          complete: true
+        },
+        { 
+          id: "Drink Water",
+          name: "Drink Water",
+          color: "#ffaa00",
+          type: "quantity",
+          goal: {
+            currentAmt: 80,
+            goalAmt: 80,
+            unit: "ounces"
+          },
           complete: true
         },
       ]
@@ -143,24 +227,28 @@ function App() {
           id: 'Tidy room',
           name: "Tidy Room",
           color: "#f72585",
+          type: "check",
           complete: false
         },
         {
           id: 'Skincare',
           name: "Skincare",
           color: "#0a9396",
+          type: "check",
           complete: true
         },
         {
           id: 'Make bed',
           name: "Make bed",
           color: "#d883ff",
+          type: "check",
           complete: false
         },
         {
           id: 'Vitamins',
           name: "Vitamins",
           color: "#d00000",
+          type: "check",
           complete: true
         },
       ]
@@ -173,24 +261,28 @@ function App() {
           id: 'Tidy room',
           name: "Tidy Room",
           color: "#f72585",
+          type: "check",
           complete: true
         },
         {
           id: 'Skincare',
           name: "Skincare",
           color: "#0a9396",
+          type: "check",
           complete: true
         },
         {
           id: 'Make bed',
           name: "Make bed",
           color: "#d883ff",
+          type: "check",
           complete: true
         },
         {
           id: 'Vitamins',
           name: "Vitamins",
           color: "#d00000",
+          type: "check",
           complete: false
         },
       ]
@@ -203,24 +295,28 @@ function App() {
           id: 'Tidy room',
           name: "Tidy Room",
           color: "#f72585",
+          type: "check",
           complete: true
         },
         {
           id: 'Skincare',
           name: "Skincare",
           color: "#0a9396",
+          type: "check",
           complete: false
         },
         {
           id: 'Make bed',
           name: "Make bed",
           color: "#d883ff",
+          type: "check",
           complete: true
         },
         {
           id: 'Vitamins',
           name: "Vitamins",
           color: "#d00000",
+          type: "check",
           complete: false
         },
       ]
@@ -233,24 +329,28 @@ function App() {
           id: 'Tidy room',
           name: "Tidy Room",
           color: "#f72585",
+          type: "check",
           complete: true
         },
         {
           id: 'Skincare',
           name: "Skincare",
           color: "#0a9396",
+          type: "check",
           complete: false
         },
         {
           id: 'Make bed',
           name: "Make bed",
           color: "#d883ff",
+          type: "check",
           complete: false
         },
         {
           id: 'Vitamins',
           name: "Vitamins",
           color: "#d00000",
+          type: "check",
           complete: false
         },
       ]
@@ -263,24 +363,28 @@ function App() {
           id: 'Tidy room',
           name: "Tidy Room",
           color: "#f72585",
+          type: "check",
           complete: false
         },
         {
           id: 'Skincare',
           name: "Skincare",
           color: "#0a9396",
+          type: "check",
           complete: false
         },
         {
           id: 'Make bed',
           name: "Make bed",
           color: "#d883ff",
+          type: "check",
           complete: true
         },
         {
           id: 'Vitamins',
           name: "Vitamins",
           color: "#d00000",
+          type: "check",
           complete: true
         },
       ]
@@ -294,7 +398,12 @@ function App() {
 
     const newHabitsList = copyHabitsList.map(habit => {
       const newId = habit.name;
-      return { id: newId, name: habit.name, color: habit.color, complete: false }
+      if (habit.type === "check") {
+        return { id: newId, name: habit.name, color: habit.color, type: habit.type, complete: false }
+      } else {
+        return { id: newId, name: habit.name, color: habit.color, type: habit.type, goal: { currentAmt: 0, goalAmt: habit.goal.amt, unit: habit.goal.unit }, complete: false }
+      }
+      
     })
 
     
@@ -314,7 +423,21 @@ function App() {
   function toggleHabitComplete(id) {
     setCurrentDayChecklist(currentDayChecklist.map(habit => {
       if(habit.id === id) {
+       
+          return {...habit, complete: !habit.complete}
+
+      } else {
+        return habit
+      }
+    }))
+  }
+
+  function changeHabitCompleteAmt(id) {
+    setCurrentDayChecklist(currentDayChecklist.map(habit => {
+      if(habit.id === id) {
+  
         return {...habit, complete: !habit.complete}
+
       } else {
         return habit
       }
@@ -376,6 +499,11 @@ function App() {
       }
 
   
+      <footer>
+          <div>buttons</div>
+          <div>info(reset)</div>
+          <div>tools</div>
+      </footer>
       
       
     </>

@@ -2,6 +2,7 @@ import Checklist from "./Checklist";
 import DisplayBar from "./DisplayBar";
 import { StyledCurrentDay } from "../styled/display/CurrentDay.styled";
 
+
 export default function CurrentDay({ currentDayChecklist, toggleHabitComplete, date }) {
   return (
     <StyledCurrentDay>
@@ -12,8 +13,6 @@ export default function CurrentDay({ currentDayChecklist, toggleHabitComplete, d
       
         
       <Checklist currentDayChecklist={currentDayChecklist} toggleHabitComplete={toggleHabitComplete} />
-        
-      
         
     </StyledCurrentDay>
   )
