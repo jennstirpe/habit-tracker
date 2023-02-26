@@ -117,7 +117,7 @@ function App() {
       color: "#ffaa00",
       type: "quantity",
       goal: {
-        currentAmt: 70,
+        currentAmt: 40,
         goalAmt: 80,
         unit: "ounces"
       },
@@ -438,8 +438,9 @@ function App() {
     
     const newHabits = [...currentDayChecklist];
     const updatedHabit = newHabits.find(habit => habit.id === id);
-    updatedHabit.goal.currentAmt = newAmt;
-    
+    updatedHabit.goal.currentAmt = parseInt(updatedHabit.goal.currentAmt) + parseInt(newAmt);
+
+    setCurrentDayChecklist(newHabits);
 
   }
 

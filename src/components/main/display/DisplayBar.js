@@ -16,7 +16,7 @@ export default function DisplayBar({ checklist }) {
                 } else {
                     if (habit.goal.currentAmt === 0) {
                         return <div className="habit-box" key={habit.id}></div>
-                    } else if (habit.goal.currentAmt === habit.goal.goalAmt) {
+                    } else if (habit.goal.currentAmt >= habit.goal.goalAmt) {
                         return <div className="habit-box" key={habit.id} style={{'background' : `${habit.color}`}}></div>
                     } else {
                         let percentageComplete = Math.round(habit.goal.currentAmt / habit.goal.goalAmt * 100);

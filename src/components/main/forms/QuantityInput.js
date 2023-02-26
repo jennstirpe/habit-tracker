@@ -16,14 +16,19 @@ export default function QuantityInput({ closeQuantityInputForm, updateCurrentAmt
   return (
     <StyledQuantityInput style={{"border": `3px solid ${habit.color}`}}>
       
-      <h3>{habit.name}</h3>
-
-      <input ref={newCurrentAmt} type="number"/>
-      <button aria-label="increase">+</button>
-      <button aria-label="decrease">-</button>
-      <span>{habit.goal.currentAmt} / {habit.goal.goalAmt}{habit.goal.unit}</span>
-
-      <button onClick={updateAndClose} >Update</button>
+      <div className="quantity-form-header">
+        <button onClick={() => closeQuantityInputForm()} className="quantity-form-close" aria-label="Close color selector">×</button>
+        <h3 className="quantity-form-title">{habit.name}</h3>
+        <span className="quantity-form-display">{habit.goal.currentAmt} / {habit.goal.goalAmt} {habit.goal.unit}</span>
+      </div>
+      
+      <input className="quantity-form-input" ref={newCurrentAmt} type="number" />
+        {/* <div className="quantity-form-btns">
+          <button className="quantity-form-btn" aria-label="increase">+</button>
+          <button className="quantity-form-btn" aria-label="decrease">-</button>
+        </div> */}
+      
+      <button className="quantity-form-update-btn" onClick={updateAndClose} >Add</button>
       </StyledQuantityInput>
   )
 }
