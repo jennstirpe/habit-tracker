@@ -32,9 +32,13 @@ export const StyledChecklist = styled.section`
 
     .checklist-item {
         width: 8rem;
-        padding: 1rem;
+        height: 3.5rem;
+        word-wrap: break-word;
         margin: 1rem 0;
         text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         border-radius: 2rem;
         transition: all 150ms linear;
         background: ${({theme}) => theme.colors.bgSecondary};

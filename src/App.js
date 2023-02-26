@@ -123,6 +123,18 @@ function App() {
       },
       complete: false
     },
+    { 
+      id: 7,
+      name: "10,000 Steps",
+      color: "#147df5",
+      type: "quantity",
+      goal: {
+        currentAmt: 7500,
+        goalAmt: 10000,
+        unit: "steps"
+      },
+      complete: false
+    },
   ]);
 
 /* TRACKING HISTORY */
