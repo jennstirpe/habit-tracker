@@ -38,7 +38,7 @@ export default function NewHabitInput() {
                 <option value="quantity">Quantity</option>
             </select>
         </div>
-        {
+        {/* {
             habitType === "quantity" && (
                 <div className="habit-quantity-values">
                     <label className="habit-quantity-label">
@@ -51,7 +51,7 @@ export default function NewHabitInput() {
                     </label>
                 </div>
             )
-        }
+        } */}
         
         <button className="habit-submit" aria-label="Add new habit">+</button>
     </StyledNewHabitInput>

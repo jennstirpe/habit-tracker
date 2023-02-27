@@ -57,7 +57,6 @@ export const StyledNewHabitInput = styled.form`
     .habit-quantity-values {
         display: flex;
         flex-direction: column;
-
         border: 1px solid ${({theme}) => theme.colors.textMain}75;
         padding: .5rem;
         border-radius: .5rem;
@@ -102,7 +101,6 @@ export const StyledNewHabitInput = styled.form`
     .habit-submit {
         margin-top: 1rem;
         font-size: 2rem;
-        /* padding: .25rem .75rem; */
         height: 3rem;
         width: 3rem;
         border-radius: 50%;

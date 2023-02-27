@@ -13,7 +13,7 @@ export const lightTheme = {
         boxShadow: "#000000"
     },
     fonts: {
-        headerText: "'Philosopher', sans-serif",
+        headerText: "'Cinzel', serif;",
         mainText: "'Mulish', sans-serif",
         weights: {
             headers: "700",
@@ -36,7 +36,7 @@ export const darkTheme = {
         boxShadow: "#000000"
     },
     fonts: {
-        headerText: "'Philosopher', sans-serif",
+        headerText: "'Cinzel', serif;",
         mainText: "'Mulish', sans-serif",
         weights: {
             headers: "400",
