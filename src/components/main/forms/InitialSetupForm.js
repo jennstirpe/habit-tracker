@@ -9,10 +9,11 @@ export default function InitialSetupForm() {
 
   return (
     <StyledInitialSetupForm>
+      <h2>Add habits</h2>
       <NewHabitInput />
 
       {
-        habitsList.length > 0 && (
+        habitsList.length == 0 && (
           <div className="habits-list">
             <div>
               habits list

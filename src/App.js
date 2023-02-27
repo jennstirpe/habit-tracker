@@ -492,30 +492,32 @@ function App() {
 
       <div>{currentTime}</div>
 
+      <InitialSetupForm />
+
       {
-        habitsList.length === 0 && <InitialSetupForm />
+        // habitsList.length === 0 && <InitialSetupForm />
       }
 
       {
-        habitsList.length > 0 && (
-          <main>
-            {/* <button onClick={createNewHistoryRecord} >CREATE NEW RECORD</button> */}
+        // habitsList.length > 0 && (
+        //   <main>
+        //     {/* <button onClick={createNewHistoryRecord} >CREATE NEW RECORD</button> */}
 
-            {
-              currentDayChecklist && <CurrentDay currentDayChecklist={currentDayChecklist} toggleHabitComplete={toggleHabitComplete} updateCurrentAmt={updateCurrentAmt} date={date} />
-            }
+        //     {
+        //       currentDayChecklist && <CurrentDay currentDayChecklist={currentDayChecklist} toggleHabitComplete={toggleHabitComplete} updateCurrentAmt={updateCurrentAmt} date={date} />
+        //     }
 
-            <History history={history} date={date} />
-          </main>
-        )
+        //     <History history={history} date={date} />
+        //   </main>
+        // )
       }
 
   
-      <footer>
+      {/* <footer>
           <div>buttons</div>
           <div>info(reset)</div>
           <div>tools</div>
-      </footer>
+      </footer> */}
       
       
     </>

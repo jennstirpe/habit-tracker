@@ -1,16 +1,12 @@
 import styled from "styled-components";
 
-export const StyledNewHabitInput = styled.div`
+export const StyledNewHabitInput = styled.form`
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1.5rem;
-    
-    h2 {
-        margin-bottom: 1rem;
-        text-transform: uppercase;
-    }
+    background: ${({theme}) => theme.colors.accentMain}10;
 
     .habit-name, #habit-type {
         padding: .5rem;
@@ -58,12 +54,59 @@ export const StyledNewHabitInput = styled.div`
         }
     }
 
+    .habit-quantity-values {
+        display: flex;
+        flex-direction: column;
+
+        border: 1px solid ${({theme}) => theme.colors.textMain}75;
+        padding: .5rem;
+        border-radius: .5rem;
+        background: ${({theme}) => theme.colors.bgSecondary}75;
+
+        .habit-quantity-label {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: .25rem;
+            letter-spacing: 1px;
+            
+            input {
+                margin: .25rem;
+                padding: .5rem;
+                font-size: 1rem;
+                border-radius: .5rem;
+                border: 1px solid ${({theme}) => theme.colors.textMain};
+                font-family: ${({theme}) => theme.fonts.mainText};
+                color: ${({theme}) => theme.colors.textMain};
+                background: ${({theme}) => theme.colors.bgSecondary};
+                transition: all 150ms linear;
+
+                &::placeholder {
+                    font-family: ${({theme}) => theme.fonts.mainText};
+                    font-size: .85rem;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    background: ${({theme}) => theme.colors.bgMain};
+                }
+
+                &:focus {
+                    outline: none;
+                    border: 2px solid ${({theme}) => theme.colors.accentMain};
+                    background: ${({theme}) => theme.colors.accentMain}10;
+                }
+            }
+        }
+    }
+
     .habit-submit {
         margin-top: 1rem;
         font-size: 2rem;
-        padding: .25rem .75rem;
+        /* padding: .25rem .75rem; */
+        height: 3rem;
+        width: 3rem;
         border-radius: 50%;
-        border: none;
+        border: 2px solid ${({theme}) => theme.colors.textMain}50;
         background: ${({theme}) => theme.colors.bgMain};
         color: ${({theme}) => theme.colors.textMain};
         transition: all 150ms linear;
@@ -80,10 +123,9 @@ export const StyledNewHabitInput = styled.div`
 
     @media (min-width: 768px) {
         flex-direction: row;
-        justify-content: space-between;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
         position: relative;
-        padding: 0 2rem;
-        height: 100%;
         
         h2 {
             position: absolute;
@@ -106,6 +148,10 @@ export const StyledNewHabitInput = styled.div`
                 height: 2.75rem;
                 width: 2.75rem;
             }
+        }
+
+        .habit-quantity-values {
+            flex-direction: row;
         }
 
         .habit-submit {
