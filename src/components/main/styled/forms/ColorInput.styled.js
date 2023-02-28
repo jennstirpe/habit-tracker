@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledColorInput = styled.form`
+export const StyledColorInput = styled.div`
     border-radius: 1rem;
     box-shadow: 0 0 1rem ${({theme}) => theme.colors.boxShadow}50;
     width: 17rem;

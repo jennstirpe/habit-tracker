@@ -492,11 +492,13 @@ function App() {
 
       <div>{currentTime}</div>
 
+      <InitialSetupForm />
+
       {
         // habitsList.length === 0 && <InitialSetupForm />
       }
 
-      {
+      {/* {
         habitsList.length > 0 && (
           <main>
 
@@ -507,14 +509,14 @@ function App() {
             <History history={history} date={date} />
           </main>
         )
-      }
+      } */}
 
   
-      <footer>
+      {/* <footer>
           <div>buttons</div>
           <div>info(reset)</div>
           <div>tools</div>
-      </footer>
+      </footer> */}
       
       
     </>

@@ -42,11 +42,27 @@ export default function InitialSetupForm() {
     },
   ]);
 
+  function addHabitToList(habitName, habitColor, habitType, habitGoalAmt, habitGoalUnit) {
+
+    const tempListCopy = [...tempHabitsList];
+    let newHabit;
+
+    const newId= habitName;
+
+    if (habitType === "check") {
+      newHabit = { id: newId, name: habitName, color: habitColor, type: habitType }
+    } else {
+      newHabit = { id: newId, name: habitName, color: habitColor, type: habitType, goal: { amt: habitGoalAmt, unit: habitGoalUnit } }
+    }
+
+    setTempHabitsList([newHabit, ...tempListCopy])
+  }
+
 
   return (
     <StyledInitialSetupForm>
       <h2>Add habits</h2>
-      <NewHabitInput />
+      <NewHabitInput addHabitToList={addHabitToList} />
 
       {
         habitsList.length == 0 && (
