@@ -1,4 +1,4 @@
-import styled, { ThemeContext } from "styled-components";
+import styled from "styled-components";
 
 export const StyledInitialSetupForm = styled.section`
     background: ${({theme}) => theme.colors.bgSecondary};
@@ -37,7 +37,7 @@ export const StyledInitialSetupForm = styled.section`
                     height: 1rem;
                     width: 1rem;
                     border-radius: 50%;
-                    margin-right: .5rem;
+                    margin: 0 .75rem;
                 }
 
                 .temp-list-item-name {
@@ -46,11 +46,11 @@ export const StyledInitialSetupForm = styled.section`
 
                 .temp-list-item-details {
                     color: ${({theme}) => theme.colors.textMain}65;
-                    font-size: .85rem;
+                    font-size: .75rem;
                     background: ${({theme}) => theme.colors.bgMain};
                     padding: .25rem .5rem;
                     border-radius: 1rem;
-                    margin-left: auto;
+                    margin-left: .75rem;
                 }
 
                 .temp-list-item-btn {
