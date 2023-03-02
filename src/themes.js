@@ -10,7 +10,9 @@ export const lightTheme = {
         toggler: "#778da9",
         bgMain: "#e9ecef",
         bgSecondary: "#f8f9fa",
-        boxShadow: "#000000"
+        boxShadow: "#000000",
+        danger: "#e63946",
+        success: "#588157"
     },
     fonts: {
         headerText: "'Cinzel', serif;",
@@ -33,7 +35,9 @@ export const darkTheme = {
         toggler: "#22333b",
         bgMain: "#212529",
         bgSecondary: "#343a40",
-        boxShadow: "#000000"
+        boxShadow: "#000000",
+        danger: "#e63946",
+        success: "#588157"
     },
     fonts: {
         headerText: "'Cinzel', serif;",

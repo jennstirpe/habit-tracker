@@ -24,11 +24,15 @@ export default function EditHabitForm({ habit }) {
   return (
     <StyledEditHabitForm>
    
-        <input className="edit-name" type="text" placeholder={habit.name} />
+        
+        <div className="edit-details">
+          <input className="edit-name" type="text" placeholder={habit.name} />
+          <div onClick={openColorInput} className="edit-color" style={{"background": `${habitColor}`}}></div>
+        </div>
+        
         {
-          habit.type === "quantity" && <input className="edit-details" placeholder={habit.goal.amt} />
+          habit.type === "quantity" && <input className="edit-quantity" placeholder={habit.goal.amt} />
         }
-        <div onClick={openColorInput} className="edit-color" style={{"background": `${habitColor}`}}></div>
 
         {
           colorInputActive && <ColorInput closeColorInput={closeColorInput} setSelectedColor={setSelectedColor} />
