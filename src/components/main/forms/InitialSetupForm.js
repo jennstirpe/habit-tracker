@@ -5,7 +5,6 @@ import EditHabitForm from "./EditHabitForm";
 
 
 export default function InitialSetupForm() {
-  const [habitsList, setHabitsList] = useState([])
 
   const [ tempHabitsList, setTempHabitsList ] = useState([
     { 
@@ -63,15 +62,31 @@ export default function InitialSetupForm() {
     setTempHabitsList([newHabit, ...tempListCopy])
   }
 
-
   function openEditForm(habit) {
     setEditHabit(habit);
     setEditFormActive(true);
-    console.log(habit)
   }
 
   function closeEditForm() {
     setEditFormActive(false);
+  }
+
+  function updateHabit(id, newName, newColor, newGoal) {
+    const updatedHabitList = [...tempHabitsList];
+    let updatedHabit = updatedHabitList.find(habit => habit.id === id);
+    if(updatedHabit.name !== newName) {
+      updatedHabit.name = newName;
+    }
+    if(updatedHabit.color !== newColor) {
+      updatedHabit.color = newColor;
+    }
+    if(updatedHabit.type === "quantity") {
+      if(updatedHabit.goal.amt !== newGoal) {
+        updatedHabit.goal.amt = newGoal;
+      }
+    }
+
+    setTempHabitsList(updatedHabitList);
   }
 
 
@@ -81,7 +96,7 @@ export default function InitialSetupForm() {
       <NewHabitInput addHabitToList={addHabitToList} />
 
       {
-        habitsList.length == 0 && (
+        tempHabitsList.length > 0 && (
           <div className="temp-habits">
 
             <ul className="temp-habits-list">
@@ -102,7 +117,7 @@ export default function InitialSetupForm() {
             </ul>
 
               { 
-              editFormActive && <EditHabitForm habit={editHabit} closeEditForm={closeEditForm} />
+              editFormActive && <EditHabitForm habit={editHabit} updateHabit={updateHabit} closeEditForm={closeEditForm} />
               }
               
               
