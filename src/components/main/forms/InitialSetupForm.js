@@ -2,6 +2,7 @@ import { useState } from "react";
 import { StyledInitialSetupForm } from "../styled/forms/InitialSetupForm.styled";
 import NewHabitInput from "./NewHabitInput";
 import EditHabitForm from "./EditHabitForm";
+import { update } from "lodash";
 
 
 export default function InitialSetupForm() {
@@ -87,6 +88,15 @@ export default function InitialSetupForm() {
     }
 
     setTempHabitsList(updatedHabitList);
+    setEditFormActive(false);
+  }
+
+  function deleteHabit(id) {
+    const habitList = [...tempHabitsList];
+    const updatedHabitList = habitList.filter(habit => habit.id !== id);
+
+    setTempHabitsList(updatedHabitList);
+    setEditFormActive(false);
   }
 
 
@@ -117,7 +127,7 @@ export default function InitialSetupForm() {
             </ul>
 
               { 
-              editFormActive && <EditHabitForm habit={editHabit} updateHabit={updateHabit} closeEditForm={closeEditForm} />
+              editFormActive && <EditHabitForm habit={editHabit} updateHabit={updateHabit} deleteHabit={deleteHabit} closeEditForm={closeEditForm} />
               }
               
               

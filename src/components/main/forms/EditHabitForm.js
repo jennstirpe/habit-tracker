@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { StyledEditHabitForm } from "../styled/forms/EditHabitForm.styled";
 import ColorInput from "./ColorInput";
 
-export default function EditHabitForm({ habit, updateHabit, closeEditForm }) {
+export default function EditHabitForm({ habit, updateHabit, deleteHabit, closeEditForm }) {
   
   const [colorInputActive, setColorInputActive] = useState(false);
   const nameInput = useRef();
@@ -55,6 +55,10 @@ export default function EditHabitForm({ habit, updateHabit, closeEditForm }) {
     updateHabit(habit.id, newName, newColor, newGoal);
   }
 
+  function handleDeleteHabit() {
+    deleteHabit(habit.id)
+  }
+
   return (
     <StyledEditHabitForm>
    
@@ -84,7 +88,7 @@ export default function EditHabitForm({ habit, updateHabit, closeEditForm }) {
         }
 
         <div className="edit-btns">
-          <button className="edit-btn delete" aria-label="Delete habit">
+          <button onClick={handleDeleteHabit} className="edit-btn delete" aria-label="Delete habit">
             <svg id="i-trash" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"  fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><path d="M28 6 L6 6 8 30 24 30 26 6 4 6 M16 12 L16 24 M21 12 L20 24 M11 12 L12 24 M12 6 L13 2 19 2 20 6" /></svg>
           </button>
           <button onClick={handleCloseEditForm} className="edit-btn cancel">Cancel</button>

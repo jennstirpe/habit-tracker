@@ -55,7 +55,6 @@ export default function NewHabitInput({ addHabitToList }) {
                 addHabitToList(name, color, type, goal, unit);
                 habitName.current.value = "";
                 setHabitColor("#fff");
-                setHabitType("check");
                 quantityGoalInput.current.value = "";
                 quantityUnitInput.current.value = "";
             }
@@ -77,7 +76,7 @@ export default function NewHabitInput({ addHabitToList }) {
                 colorInputActive && <ColorInput closeColorInput={closeColorInput} setSelectedColor={setSelectedColor} />
             }
             <select name="habit-type" id="habit-type" ref={habitTypeInput} onChange={changeHabitType}>
-                <option value="" disabled>Habit Type</option>
+                <option value="" defaultValue disabled>Habit Type</option>
                 <option value="check">Yes/No</option>
                 <option value="quantity">Quantity</option>
             </select>

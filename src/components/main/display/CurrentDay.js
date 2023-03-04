@@ -6,6 +6,7 @@ import { StyledCurrentDay } from "../styled/display/CurrentDay.styled";
 export default function CurrentDay({ currentDayChecklist, toggleHabitComplete, updateCurrentAmt, date }) {
   return (
     <StyledCurrentDay>
+      <button>Edit</button>
       <div className="current-day-header">
         <h2>Today</h2>
         <DisplayBar checklist={currentDayChecklist} date={date} />
