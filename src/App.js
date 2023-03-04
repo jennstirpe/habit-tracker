@@ -43,99 +43,12 @@ function App() {
   }
 
 /* LIST OF HABITS TO TRACK */   // const [ habitsList, setHabitsList ] = useState([]);
-  const [ habitsList, setHabitsList ] = useState([
-    { 
-      id: 1,
-      name: "Tidy room",
-      color: "#f72585",
-      type: "check",
-    },
-    { 
-      id: 2,
-      name: "Skincare",
-      color: "#0a9396",
-      type: "check",
-    },
-    { 
-      id: 3,
-      name: "Make bed",
-      color: "#d883ff",
-      type: "check",
-    },
-    { 
-      id: 4,
-      name: "Vitamins",
-      color: "#d00000",
-      type: "check",
-    },
-    { 
-      id: 5,
-      name: "Drink Water",
-      color: "#ffaa00",
-      type: "quantity",
-      goal: {
-        amt: 80,
-        unit: "ounces"
-      }
-    },
-  ]);
+const [ habitsList, setHabitsList ] = useState([])
+  
 
 /* CURRENT DAY CHECKLIST */
-  // const [ currentDayChecklist, setCurrentDayChecklist ] = useState([]);
-  const [ currentDayChecklist, setCurrentDayChecklist ] = useState([
-    { 
-      id: 1,
-      name: "Tidy room",
-      color: "#f72585",
-      type: "check",
-      complete: false
-    },
-    { 
-      id: 2,
-      name: "Skincare",
-      color: "#0a9396",
-      type: "check",
-      complete: true
-    },
-    { 
-      id: 3,
-      name: "Make bed",
-      color: "#d883ff",
-      type: "check",
-      complete: false
-    },
-    { 
-      id: 4,
-      name: "Vitamins",
-      color: "#d00000",
-      type: "check",
-      complete: true
-    },
-    { 
-      id: 6,
-      name: "Drink Water",
-      color: "#ffaa00",
-      type: "quantity",
-      goal: {
-        currentAmt: 40,
-        goalAmt: 80,
-        unit: "ounces"
-      },
-      complete: false
-    },
-    { 
-      id: 7,
-      name: "10,000 Steps",
-      color: "#147df5",
-      type: "quantity",
-      goal: {
-        currentAmt: 7500,
-        goalAmt: 10000,
-        unit: "steps"
-      },
-      complete: false
-    },
-  ]);
+  const [ currentDayChecklist, setCurrentDayChecklist ] = useState([]);
+  
 
 /* TRACKING HISTORY */
   const [ history, setHistory ] = useState([
@@ -477,7 +390,13 @@ function App() {
     
   }
 
+  function setHabits(list) {
+    setHabitsList(list);
+  }
 
+  useEffect(() => {
+    setNewDay()
+  }, [habitsList])
 
   return (
     <ThemeProvider theme={colorTheme === 'light' ? lightTheme : darkTheme} >
@@ -492,13 +411,13 @@ function App() {
 
       <div>{currentTime}</div>
 
-      <InitialSetupForm />
+      
 
       {
-        // habitsList.length === 0 && <InitialSetupForm />
+        habitsList.length === 0 && <InitialSetupForm setHabits={setHabits} />
       }
 
-      {/* {
+      {
         habitsList.length > 0 && (
           <main>
 
@@ -509,14 +428,14 @@ function App() {
             <History history={history} date={date} />
           </main>
         )
-      } */}
+      }
 
   
-      {/* <footer>
+      <footer>
           <div>buttons</div>
           <div>info(reset)</div>
           <div>tools</div>
-      </footer> */}
+      </footer>
       
       
     </>

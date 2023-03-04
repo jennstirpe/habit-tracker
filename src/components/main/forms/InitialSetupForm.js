@@ -2,47 +2,11 @@ import { useState } from "react";
 import { StyledInitialSetupForm } from "../styled/forms/InitialSetupForm.styled";
 import NewHabitInput from "./NewHabitInput";
 import EditHabitForm from "./EditHabitForm";
-import { update } from "lodash";
 
 
-export default function InitialSetupForm() {
+export default function InitialSetupForm({ setHabits }) {
 
-  const [ tempHabitsList, setTempHabitsList ] = useState([
-    { 
-      id: 100,
-      name: "Tidy room",
-      color: "#f72585",
-      type: "check",
-    },
-    { 
-      id: 200,
-      name: "Skincare",
-      color: "#0a9396",
-      type: "check",
-    },
-    { 
-      id: 300,
-      name: "Make bed",
-      color: "#d883ff",
-      type: "check",
-    },
-    { 
-      id: 400,
-      name: "Vitamins",
-      color: "#d00000",
-      type: "check",
-    },
-    { 
-      id: 500,
-      name: "Drink Water",
-      color: "#ffaa00",
-      type: "quantity",
-      goal: {
-        amt: 80,
-        unit: "ounces"
-      }
-    },
-  ]);
+  const [ tempHabitsList, setTempHabitsList ] = useState([]);
 
   const [ editFormActive, setEditFormActive ] = useState(false);
   const [ editHabit, setEditHabit ] = useState({});
@@ -99,6 +63,10 @@ export default function InitialSetupForm() {
     setEditFormActive(false);
   }
 
+  function handleSetHabits() {
+    setHabits(tempHabitsList)
+  }
+
 
   return (
     <StyledInitialSetupForm>
@@ -131,7 +99,7 @@ export default function InitialSetupForm() {
               }
               
               
-            <button className="temp-habits-finish">Done</button>
+            <button onClick={handleSetHabits} className="temp-habits-finish">Done</button>
           </div>
         )
       }

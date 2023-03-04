@@ -11,14 +11,16 @@ export const StyledQuantityInput = styled.form`
     position: absolute;
     width: 100%;
     height: 100%;
+    min-height: 12rem;
     box-shadow: 0 0 1rem ${({theme}) => theme.colors.boxShadow}50;
 
     .quantity-form-header {
         border-bottom: 1px solid ${({theme}) => theme.colors.mainText}50;
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
+        align-items: center;
         letter-spacing: 1px;
+        margin-bottom: 1rem;
 
         .quantity-form-close {
             font-size: 2rem;
@@ -49,6 +51,7 @@ export const StyledQuantityInput = styled.form`
     .quantity-form-input {
         width: 6rem;
         height: 3rem;
+        margin-bottom: .5rem;
         text-align: center;
         font-size: 2rem;
         border-radius: .5rem;
