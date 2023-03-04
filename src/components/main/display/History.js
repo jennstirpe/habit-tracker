@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { StyledHistory } from "../styled/display/History.styled";
 import HistoryItem from "./HistoryItem";
-// import _ from 'lodash';
 
 export default function History({ history, date }) {
   const splitDate = date.split("/");
@@ -72,9 +71,7 @@ export default function History({ history, date }) {
     }
     
     setDisplayMonth(newMonth);
-    
   }
-
 }
 
 // SORT BY MONTH

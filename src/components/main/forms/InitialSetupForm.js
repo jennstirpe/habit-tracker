@@ -3,7 +3,6 @@ import { StyledInitialSetupForm } from "../styled/forms/InitialSetupForm.styled"
 import NewHabitInput from "./NewHabitInput";
 import EditHabitForm from "./EditHabitForm";
 
-
 export default function InitialSetupForm({ setHabits }) {
 
   const [ tempHabitsList, setTempHabitsList ] = useState([]);
@@ -11,7 +10,7 @@ export default function InitialSetupForm({ setHabits }) {
   const [ editFormActive, setEditFormActive ] = useState(false);
   const [ editHabit, setEditHabit ] = useState({});
 
-  function addHabitToList(habitName, habitColor, habitType, habitGoalAmt, habitGoalUnit) {
+  function addHabitToList(habitName, habitColor, habitType, habitGoalAmt) {
 
     const tempListCopy = [...tempHabitsList];
     let newHabit;
@@ -21,7 +20,7 @@ export default function InitialSetupForm({ setHabits }) {
     if (habitType === "check") {
       newHabit = { id: newId, name: habitName, color: habitColor, type: habitType }
     } else {
-      newHabit = { id: newId, name: habitName, color: habitColor, type: habitType, goal: { amt: habitGoalAmt, unit: habitGoalUnit } }
+      newHabit = { id: newId, name: habitName, color: habitColor, type: habitType, goal: { amt: habitGoalAmt } }
     }
 
     setTempHabitsList([newHabit, ...tempListCopy])

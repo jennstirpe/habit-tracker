@@ -10,7 +10,6 @@ export default function NewHabitInput({ addHabitToList }) {
     const [habitType, setHabitType] = useState("check");
     const habitTypeInput = useRef();
     const quantityGoalInput = useRef();
-    const quantityUnitInput = useRef();
     
     
 
@@ -47,16 +46,14 @@ export default function NewHabitInput({ addHabitToList }) {
             return
         } else if (type === "quantity") {
             const goal = quantityGoalInput.current.value;
-            const unit = quantityUnitInput.current.value;
 
-            if(!goal || !unit) {
+            if(!goal) {
                 return
             } else {
-                addHabitToList(name, color, type, goal, unit);
+                addHabitToList(name, color, type, goal);
                 habitName.current.value = "";
                 setHabitColor("#fff");
                 quantityGoalInput.current.value = "";
-                quantityUnitInput.current.value = "";
             }
         } else if (type === "check"){
             addHabitToList(name, color, type);
@@ -87,10 +84,6 @@ export default function NewHabitInput({ addHabitToList }) {
                     <label className="habit-quantity-label">
                         Goal
                         <input ref={quantityGoalInput} className="habit-quantity-input" type="number" placeholder="Enter your goal amount" />
-                    </label>
-                    <label className="habit-quantity-label">
-                        Goal Type
-                        <input ref={quantityUnitInput} className="habit-quantity-input" type="text" placeholder="eg. steps, ounces, cups, etc" />
                     </label>
                 </div>
             )

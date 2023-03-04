@@ -6,13 +6,9 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from './themes.js';
 
 import ThemeToggler from "./components/header/ThemeToggler";
-import Checklist from "./components/main/display/Checklist";
-import ColorInput from "./components/main/forms/ColorInput";
 import CurrentDay from "./components/main/display/CurrentDay";
 import History from "./components/main/display/History";
 import InitialSetupForm from "./components/main/forms/InitialSetupForm";
-
-
 
 function App() {
 
@@ -31,9 +27,9 @@ function App() {
   }, [])
 
 
-  // SET THEME
+// SET THEME
   const [colorTheme, setColorTheme] = useState('light');
-  // toggle theme
+// toggle theme
   function toggleTheme() {
     if (colorTheme === "dark") {
       setColorTheme('light');
@@ -42,8 +38,16 @@ function App() {
     }
   }
 
-/* LIST OF HABITS TO TRACK */   // const [ habitsList, setHabitsList ] = useState([]);
-const [ habitsList, setHabitsList ] = useState([])
+/* LIST OF HABITS TO TRACK */
+  const [ habitsList, setHabitsList ] = useState([]);
+
+  function setHabits(list) {
+    setHabitsList(list);
+  }
+
+  useEffect(() => {
+    setNewDay()
+  }, [habitsList])
   
 
 /* CURRENT DAY CHECKLIST */
@@ -92,7 +96,6 @@ const [ habitsList, setHabitsList ] = useState([])
           goal: {
             currentAmt: 40,
             goalAmt: 80,
-            unit: "ounces"
           },
           complete: false
         },
@@ -138,7 +141,6 @@ const [ habitsList, setHabitsList ] = useState([])
           goal: {
             currentAmt: 80,
             goalAmt: 80,
-            unit: "ounces"
           },
           complete: true
         },
@@ -326,7 +328,7 @@ const [ habitsList, setHabitsList ] = useState([])
       if (habit.type === "check") {
         return { id: newId, name: habit.name, color: habit.color, type: habit.type, complete: false }
       } else {
-        return { id: newId, name: habit.name, color: habit.color, type: habit.type, goal: { currentAmt: 0, goalAmt: habit.goal.amt, unit: habit.goal.unit }, complete: false }
+        return { id: newId, name: habit.name, color: habit.color, type: habit.type, goal: { currentAmt: 0, goalAmt: habit.goal.amt}, complete: false }
       }
       
     })
@@ -344,7 +346,7 @@ const [ habitsList, setHabitsList ] = useState([])
     }
   }, [])
 
-
+/* UPDATE CURRENT DAY CHECKLIST  */
   function toggleHabitComplete(id) {
     setCurrentDayChecklist(currentDayChecklist.map(habit => {
       if(habit.id === id) {
@@ -390,13 +392,12 @@ const [ habitsList, setHabitsList ] = useState([])
     
   }
 
-  function setHabits(list) {
-    setHabitsList(list);
-  }
 
-  useEffect(() => {
-    setNewDay()
-  }, [habitsList])
+
+
+
+
+
 
   return (
     <ThemeProvider theme={colorTheme === 'light' ? lightTheme : darkTheme} >
@@ -410,8 +411,6 @@ const [ habitsList, setHabitsList ] = useState([])
       </header>
 
       <div>{currentTime}</div>
-
-      
 
       {
         habitsList.length === 0 && <InitialSetupForm setHabits={setHabits} />
@@ -430,13 +429,11 @@ const [ habitsList, setHabitsList ] = useState([])
         )
       }
 
-  
       <footer>
           <div>buttons</div>
           <div>info(reset)</div>
           <div>tools</div>
       </footer>
-      
       
     </>
     </ThemeProvider>

@@ -19,7 +19,7 @@ export default function QuantityInput({ closeQuantityInputForm, updateCurrentAmt
       <div className="quantity-form-header">
         <button onClick={() => closeQuantityInputForm()} className="quantity-form-close" aria-label="Close color selector">×</button>
         <h3 className="quantity-form-title">{habit.name}</h3>
-        <span className="quantity-form-display">{habit.goal.currentAmt} / {habit.goal.goalAmt} {habit.goal.unit}</span>
+        <span className="quantity-form-display">{habit.goal.currentAmt} / {habit.goal.goalAmt}</span>
       </div>
       
       <input className="quantity-form-input" ref={newCurrentAmt} type="number" />
