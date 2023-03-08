@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import _ from "lodash";
+import { v4 as uuidv4 } from 'uuid';
 
 import GlobalStyles from "./components/global/styled/Global";
 import { ThemeProvider } from "styled-components";
@@ -8,14 +9,12 @@ import { lightTheme, darkTheme } from './themes.js';
 import ThemeToggler from "./components/header/ThemeToggler";
 import CurrentDay from "./components/main/display/CurrentDay";
 import History from "./components/main/display/History";
-import InitialSetupForm from "./components/main/forms/InitialSetupForm";
+import SetupForm from "./components/main/forms/SetupForm";
 
 function App() {
 
   const today = new Date().toLocaleDateString();
   const [date, setDate] = useState(today);
-
-  
 
   // CLOCK & TIME TRACKING
   const [currentTime, setCurrentTime] = useState();
@@ -39,7 +38,45 @@ function App() {
   }
 
 /* LIST OF HABITS TO TRACK */
-  const [ habitsList, setHabitsList ] = useState([]);
+  // const [ habitsList, setHabitsList ] = useState([]);
+  const [ habitsList, setHabitsList ] = useState([
+    { 
+      id: 1,
+      name: "Tidy room",
+      color: "#f72585",
+      type: "check",
+    },
+    { 
+      id: 2,
+      name: "Skincare",
+      color: "#0a9396",
+      type: "check",
+    },
+    { 
+      id: 3,
+      name: "Make bed",
+      color: "#d883ff",
+      type: "check",
+    },
+    { 
+      id: 4,
+      name: "Vitamins",
+      color: "#d00000",
+      type: "check",
+    },
+    { 
+      id: 5,
+      name: "Drink Water",
+      color: "#ffaa00",
+      type: "quantity",
+      goal: {
+        amt: 80,
+        unit: "ounces"
+      }
+    },
+  ]);
+
+
 
   function setHabits(list) {
     setHabitsList(list);
@@ -51,7 +88,62 @@ function App() {
   
 
 /* CURRENT DAY CHECKLIST */
-  const [ currentDayChecklist, setCurrentDayChecklist ] = useState([]);
+  // const [ currentDayChecklist, setCurrentDayChecklist ] = useState([]);
+
+  const [ currentDayChecklist, setCurrentDayChecklist ] = useState([
+    { 
+      id: 1000,
+      name: "Tidy room",
+      color: "#f72585",
+      type: "check",
+      complete: false
+    },
+    { 
+      id: 2000,
+      name: "Skincare",
+      color: "#0a9396",
+      type: "check",
+      complete: true
+    },
+    { 
+      id: 3000,
+      name: "Make bed",
+      color: "#d883ff",
+      type: "check",
+      complete: false
+    },
+    { 
+      id: 4000,
+      name: "Vitamins",
+      color: "#d00000",
+      type: "check",
+      complete: true
+    },
+    { 
+      id: 6000,
+      name: "Drink Water",
+      color: "#ffaa00",
+      type: "quantity",
+      goal: {
+        currentAmt: 40,
+        goalAmt: 80,
+        unit: "ounces"
+      },
+      complete: false
+    },
+    { 
+      id: 7000,
+      name: "10,000 Steps",
+      color: "#147df5",
+      type: "quantity",
+      goal: {
+        currentAmt: 7500,
+        goalAmt: 10000,
+        unit: "steps"
+      },
+      complete: false
+    },
+  ]);
   
 
 /* TRACKING HISTORY */
@@ -324,11 +416,10 @@ function App() {
     const copyHabitsList = [...habitsList];
 
     const newHabitsList = copyHabitsList.map(habit => {
-      const newId = habit.name;
       if (habit.type === "check") {
-        return { id: newId, name: habit.name, color: habit.color, type: habit.type, complete: false }
+        return { id: uuidv4(), name: habit.name, color: habit.color, type: habit.type, complete: false }
       } else {
-        return { id: newId, name: habit.name, color: habit.color, type: habit.type, goal: { currentAmt: 0, goalAmt: habit.goal.amt}, complete: false }
+        return { id: uuidv4(), name: habit.name, color: habit.color, type: habit.type, goal: { currentAmt: 0, goalAmt: habit.goal.amt}, complete: false }
       }
       
     })
@@ -394,11 +485,6 @@ function App() {
 
 
 
-
-
-
-
-
   return (
     <ThemeProvider theme={colorTheme === 'light' ? lightTheme : darkTheme} >
     <>
@@ -413,7 +499,7 @@ function App() {
       <div>{currentTime}</div>
 
       {
-        habitsList.length === 0 && <InitialSetupForm setHabits={setHabits} />
+        habitsList.length === 0 && <SetupForm habitList={[]} setHabits={setHabits} />
       }
 
       {
@@ -421,13 +507,13 @@ function App() {
           <main>
 
             {
-              currentDayChecklist && <CurrentDay currentDayChecklist={currentDayChecklist} toggleHabitComplete={toggleHabitComplete} updateCurrentAmt={updateCurrentAmt} date={date} />
+              currentDayChecklist && <CurrentDay currentDayChecklist={currentDayChecklist} toggleHabitComplete={toggleHabitComplete} updateCurrentAmt={updateCurrentAmt} date={date} habitList={habitsList} setHabits={setHabits} />
             }
 
             <History history={history} date={date} />
           </main>
         )
-      }
+      } 
 
       <footer>
           <div>buttons</div>

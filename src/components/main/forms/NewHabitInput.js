@@ -11,7 +11,6 @@ export default function NewHabitInput({ addHabitToList }) {
     const habitTypeInput = useRef();
     const quantityGoalInput = useRef();
     
-    
 
     function openColorInput(e) {
         e.preventDefault();
@@ -61,7 +60,6 @@ export default function NewHabitInput({ addHabitToList }) {
             setHabitColor("#fff");
         }
     }
-
     
 
   return (

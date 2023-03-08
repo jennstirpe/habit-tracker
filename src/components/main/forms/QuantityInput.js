@@ -25,6 +25,6 @@ export default function QuantityInput({ closeQuantityInputForm, updateCurrentAmt
       <input className="quantity-form-input" ref={newCurrentAmt} type="number" />
       
       <button className="quantity-form-update-btn" onClick={updateAndClose} >Add</button>
-      </StyledQuantityInput>
+    </StyledQuantityInput>
   )
 }

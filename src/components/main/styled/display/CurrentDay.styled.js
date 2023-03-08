@@ -7,6 +7,7 @@ export const StyledCurrentDay = styled.section`
     align-items: center;
     padding: 1rem;
     height: 25rem;
+    position: relative;
 
     .current-day-header {
         display: flex;
@@ -14,5 +15,10 @@ export const StyledCurrentDay = styled.section`
         h2 {
             margin-right: .75rem;
         }
+    }
+
+    .current-day-edit-form {
+        position: absolute;
+        z-index: 5;
     }
 `;

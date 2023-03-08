@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledInitialSetupForm = styled.section`
+export const StyledSetupForm = styled.section`
     background: ${({theme}) => theme.colors.bgSecondary};
     box-shadow: 0 0 2rem ${({theme}) => theme.colors.boxShadow}50;
     width: 22rem;

@@ -1,11 +1,12 @@
-import { useState } from "react";
-import { StyledInitialSetupForm } from "../styled/forms/InitialSetupForm.styled";
+import { useEffect, useState } from "react";
+import { StyledSetupForm } from "../styled/forms/SetupForm.styled";
 import NewHabitInput from "./NewHabitInput";
 import EditHabitForm from "./EditHabitForm";
+import { v4 as uuidv4 } from 'uuid';
 
-export default function InitialSetupForm({ setHabits }) {
+export default function SetupForm({ habitList, setHabits }) {
 
-  const [ tempHabitsList, setTempHabitsList ] = useState([]);
+  const [ tempHabitsList, setTempHabitsList ] = useState([...habitList]);
 
   const [ editFormActive, setEditFormActive ] = useState(false);
   const [ editHabit, setEditHabit ] = useState({});
@@ -15,16 +16,20 @@ export default function InitialSetupForm({ setHabits }) {
     const tempListCopy = [...tempHabitsList];
     let newHabit;
 
-    const newId= habitName;
-
     if (habitType === "check") {
-      newHabit = { id: newId, name: habitName, color: habitColor, type: habitType }
+      newHabit = { id: uuidv4(), name: habitName, color: habitColor, type: habitType }
     } else {
-      newHabit = { id: newId, name: habitName, color: habitColor, type: habitType, goal: { amt: habitGoalAmt } }
+      newHabit = { id: uuidv4(), name: habitName, color: habitColor, type: habitType, goal: { amt: habitGoalAmt } }
     }
+
+    console.log(newHabit)
 
     setTempHabitsList([newHabit, ...tempListCopy])
   }
+
+  useEffect(() => {
+    console.log(tempHabitsList)
+  }, [tempHabitsList])
 
   function openEditForm(habit) {
     setEditHabit(habit);
@@ -68,7 +73,7 @@ export default function InitialSetupForm({ setHabits }) {
 
 
   return (
-    <StyledInitialSetupForm>
+    <StyledSetupForm>
       <h2>Add habits</h2>
       <NewHabitInput addHabitToList={addHabitToList} />
 
@@ -103,6 +108,6 @@ export default function InitialSetupForm({ setHabits }) {
         )
       }
 
-    </StyledInitialSetupForm>
+    </StyledSetupForm>
   )
 }
