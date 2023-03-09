@@ -6,7 +6,9 @@ export const StyledCurrentDay = styled.section`
     justify-content: space-evenly;
     align-items: center;
     padding: 1rem;
-    height: 25rem;
+    margin: 1rem 0;
+    height: 40vh;
+    max-height: 30rem;
     position: relative;
 
     .current-day-header {

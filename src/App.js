@@ -494,9 +494,15 @@ function App() {
         <ThemeToggler toggleTheme={toggleTheme} colorTheme={colorTheme} />
         <h1>Habit Tracker</h1>
         <span>Build habits effectively and stay on track</span>
+
+        
+          {/* <div>buttons</div>
+          <div>info(reset)</div>
+          <div>tools</div>
+          <div>{currentTime}</div> */}
       </header>
 
-      <div>{currentTime}</div>
+      
 
       {
         habitsList.length === 0 && <SetupForm habitList={[]} setHabits={setHabits} />
@@ -514,12 +520,6 @@ function App() {
           </main>
         )
       } 
-
-      <footer>
-          <div>buttons</div>
-          <div>info(reset)</div>
-          <div>tools</div>
-      </footer>
       
     </>
     </ThemeProvider>

@@ -75,7 +75,9 @@ export default function SetupForm({ habitList, setHabits }) {
   return (
     <StyledSetupForm>
       <h2>Add habits</h2>
-      <NewHabitInput addHabitToList={addHabitToList} />
+
+      {tempHabitsList.length < 10 && <NewHabitInput addHabitToList={addHabitToList} /> }
+      
 
       {
         tempHabitsList.length > 0 && (

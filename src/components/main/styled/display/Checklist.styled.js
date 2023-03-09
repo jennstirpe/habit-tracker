@@ -6,6 +6,7 @@ export const StyledChecklist = styled.section`
     position: relative;
     padding: 2rem 0;
     margin-top: .75rem;
+    overflow: scroll;
 
     .edit-form-open {
         position: absolute;
@@ -40,6 +41,7 @@ export const StyledChecklist = styled.section`
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
+        
 
         .checklist-item {
             width: 8rem;

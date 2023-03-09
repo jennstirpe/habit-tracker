@@ -9,8 +9,13 @@ export const StyledQuantityInput = styled.form`
     border-radius: .5rem;
     background: ${({theme}) => theme.colors.bgSecondary};
     position: absolute;
-    width: 100%;
-    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 90%;
+    height: 90%;
     min-height: 12rem;
     box-shadow: 0 0 1rem ${({theme}) => theme.colors.boxShadow}50;
 

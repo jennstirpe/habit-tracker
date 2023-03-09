@@ -5,6 +5,8 @@ export const StyledHistory = styled.ul`
     border-radius: 1rem;
     background: ${({theme}) => theme.colors.bgSecondary};
     padding: 2rem;
+    height: 50vh;
+    overflow: scroll;
 
     .history-sort-list {
         list-style: none;
