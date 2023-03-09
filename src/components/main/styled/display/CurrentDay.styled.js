@@ -42,4 +42,9 @@ export const StyledCurrentDay = styled.section`
             }
         }
     }
+
+    @media (min-width: 768px) {
+        width: 45rem;
+        padding: 2rem;
+    }
 `;

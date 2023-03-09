@@ -12,6 +12,7 @@ const GlobalStyles = createGlobalStyle`
         font-family: ${({theme}) => theme.fonts.mainText};
         height: 100vh;
         width: 100vw;
+        min-width: 22rem;
         background: ${({theme}) => theme.colors.bgMain};
         color: ${({theme}) => theme.colors.textMain};
         display: flex;
