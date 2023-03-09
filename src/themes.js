@@ -1,12 +1,12 @@
 
-// Philosopher: 400, 700
-// Mulish: 200, 400, 700
+// Barlowe Condensed: 200, 400, 700
+// Montserrat: 200, 400, 700
 
 export const lightTheme = {
     colors: {
         textMain: "#2B2739",
         textSecondary: "#AAA5B4",
-        accentMain: "#560bad",
+        accentMain: "#52796f",
         toggler: "#778da9",
         bgMain: "#e9ecef",
         bgSecondary: "#f8f9fa",
@@ -15,8 +15,8 @@ export const lightTheme = {
         success: "#588157"
     },
     fonts: {
-        headerText: "'Cinzel', serif;",
-        mainText: "'Mulish', sans-serif",
+        headerText: "'Barlow Condensed', sans-serif",
+        mainText: "'Montserrat', sans-serif",
         weights: {
             headers: "700",
             body: "400"
@@ -31,7 +31,7 @@ export const darkTheme = {
     colors: {
         textMain: "#E7E5EB",
         textSecondary: "#686172",
-        accentMain: "#b5179e",
+        accentMain: "#84a98c",
         toggler: "#22333b",
         bgMain: "#212529",
         bgSecondary: "#343a40",
@@ -40,8 +40,8 @@ export const darkTheme = {
         success: "#588157"
     },
     fonts: {
-        headerText: "'Cinzel', serif;",
-        mainText: "'Mulish', sans-serif",
+        headerText: "'Barlow Condensed', sans-serif",
+        mainText: "'Montserrat', sans-serif",
         weights: {
             headers: "400",
             body: "200"

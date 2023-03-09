@@ -100,12 +100,12 @@ export const StyledNewHabitInput = styled.form`
 
     .habit-submit {
         margin-top: 1rem;
-        font-size: 2rem;
+        font-size: 1.25rem;
         height: 3rem;
-        width: 3rem;
-        border-radius: 50%;
+        width: 6rem;
+        border-radius: .5rem;
         border: 2px solid ${({theme}) => theme.colors.textMain}50;
-        background: ${({theme}) => theme.colors.bgMain};
+        background: ${({theme}) => theme.colors.bgSecondary};
         color: ${({theme}) => theme.colors.textMain};
         transition: all 150ms linear;
 
@@ -120,9 +120,10 @@ export const StyledNewHabitInput = styled.form`
 
 
     @media (min-width: 768px) {
+        padding: 2rem 7.5rem;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-evenly;
+        justify-content: space-between;
         position: relative;
         
         h2 {
@@ -153,7 +154,12 @@ export const StyledNewHabitInput = styled.form`
         }
 
         .habit-submit {
-            margin-top: 0rem;
+            /* margin-top: 0rem; */
+            /* font-size: 2rem;
+            height: 3rem;
+            width: 6rem;
+            border-radius: .5rem;
+            border: 2px solid ${({theme}) => theme.colors.textMain}50; */
         }
     }
     

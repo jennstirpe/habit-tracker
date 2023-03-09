@@ -81,13 +81,13 @@ export default function NewHabitInput({ addHabitToList }) {
                 <div className="habit-quantity-values">
                     <label className="habit-quantity-label">
                         Goal
-                        <input ref={quantityGoalInput} className="habit-quantity-input" type="number" placeholder="Enter your goal amount" />
+                        <input ref={quantityGoalInput} className="habit-quantity-input" type="number" placeholder="Enter goal amount" />
                     </label>
                 </div>
             )
         }
         
-        <button onClick={handleSubmitNewHabit} className="habit-submit" aria-label="Add new habit">+</button>
+        <button onClick={handleSubmitNewHabit} className="habit-submit" aria-label="Add new habit">+ Add</button>
     </StyledNewHabitInput>
   )
 }
