@@ -24,7 +24,7 @@ export default function CurrentDay({ currentDayChecklist, toggleHabitComplete, u
 
   return (
     <StyledCurrentDay>
-      <button onClick={openEdit}>Edit</button>
+      
       <div className="current-day-header">
         <h2>Today</h2>
         <DisplayBar checklist={currentDayChecklist} date={date} />
@@ -33,6 +33,7 @@ export default function CurrentDay({ currentDayChecklist, toggleHabitComplete, u
       {
         editFormActive && 
         <div className="current-day-edit-form">
+          <button onClick={closeEdit} className="edit-form-close" aria-label="Close edit form">×</button>
           <SetupForm habitList={habitList} setHabits={handleSetHabits} />
         </div>
         
@@ -40,7 +41,7 @@ export default function CurrentDay({ currentDayChecklist, toggleHabitComplete, u
       }
       
         
-      <Checklist currentDayChecklist={currentDayChecklist} toggleHabitComplete={toggleHabitComplete} updateCurrentAmt={updateCurrentAmt} />
+      <Checklist currentDayChecklist={currentDayChecklist} toggleHabitComplete={toggleHabitComplete} updateCurrentAmt={updateCurrentAmt} openEdit={openEdit} />
         
     </StyledCurrentDay>
   )

@@ -9,7 +9,6 @@ export const StyledSetupForm = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10vh;
 
     h2 {
         margin: 1rem;
